@@ -12,11 +12,15 @@ phase=[0,0,0]
 amp = [1,0.4,.5]
 center = [0, 0, -2]
 
-with open('FigureEightFFnew.txt', 'w') as the_file:
+with open('FigureEightFF.txt', 'w') as the_file:
     t=0
     pastX = 0
     pastY = 0
     pastZ = 0
+    pastVx = 0
+    pastVy = 0
+    pastVz = 0 
+
     while t <= maxtime:
         x = math.sin(t * 2 * math.pi / period[0] + phase[0]) * radius * amp[0] + center[0]
         y = math.sin(t * 2 * math.pi / period[1] + phase[1]) * radius * amp[1] + center[1]
@@ -29,9 +33,19 @@ with open('FigureEightFFnew.txt', 'w') as the_file:
 
         the_file.write("," + fmt(vx) + "," + fmt(vy) + "," + fmt(vz))
 
+        accX = (vx - pastVx) / timestep
+        accY = (vy - pastVy) / timestep
+        accZ = (vz - pastVz) / timestep
+
+        the_file.write("," + fmt(0.0) + "," + fmt(0.0) + "," + fmt(0.0))
+        the_file.write("," + fmt(accX) + "," + fmt(accY) + "," + fmt(accZ))
+
         pastX = x
         pastY = y
         pastZ = z
+        pastVx = vx
+        pastVy = vy
+        pastVz = vz 
         
         the_file.write("\n")
         
