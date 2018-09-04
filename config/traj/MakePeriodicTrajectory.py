@@ -7,7 +7,7 @@ period = [4, 2, 4]
 radius = 1.5
 timestep = 0.02
 maxtime = max(period)*3
-timemult = [1, 1, 1]
+timemult = [1.00, 1.00, 1.00]
 phase=[0,0,0]
 amp = [1,0.4,.5]
 center = [0, 0, -2]
@@ -22,9 +22,9 @@ with open('FigureEightFF.txt', 'w') as the_file:
     pastVz = 0 
 
     while t <= maxtime:
-        x = math.sin(t * 2 * math.pi / period[0] + phase[0]) * radius * amp[0] + center[0]
-        y = math.sin(t * 2 * math.pi / period[1] + phase[1]) * radius * amp[1] + center[1]
-        z = math.sin(t * 2 * math.pi / period[2] + phase[2]) * radius * amp[2] + center[2]
+        x = math.sin(t * 2 * math.pi / period[0] * timemult[0] + phase[0]) * radius * amp[0] + center[0]
+        y = math.sin(t * 2 * math.pi / period[1] * timemult[1] + phase[1]) * radius * amp[1] + center[1]
+        z = math.sin(t * 2 * math.pi / period[2] * timemult[2] + phase[2]) * radius * amp[2] + center[2]
         the_file.write(fmt(t) + "," + fmt(x) + "," + fmt(y) + "," + fmt(z))
 
         vx = (x - pastX) / timestep
