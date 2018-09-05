@@ -297,3 +297,16 @@ The specific performance metrics are as follows:
 ## Authors ##
 
 Thanks to Fotokite for the initial development of the project code and simulator.
+
+## My Implementation ##
+
+- In my implementation, I met all the criteria that was required and also the Extra Challenges.
+
+- I improved the trajectory tracking by adding info about velocity and acceleration to the position of the trajectory.
+
+- In that way, the controller has a more feed forward attributes that improves its capabilities to follow the track.
+
+- All the trajectories generated can be found at Config/Traj.
+
+- To test and see the performance of each trajectory, just edit the 5_TrajectoryFollow.txt at Config/ substituting the
+name of the actual trajectory in the file to any other file names from Config/Traj.
